@@ -1,5 +1,5 @@
 ### KeyNotes
-- I am hyprland on debian with trixie.
+- I am using hyprland on debian with trixie.
 - Make your own wallpaper dir and link it on scripts folder.
 - I am using 2fa cli source (https://github.com/rsc/2fa.git)
 
