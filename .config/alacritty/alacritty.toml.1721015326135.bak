@@ -1,0 +1,13 @@
+import = [
+  "/home/suraj/.nvm/versions/node/v20.12.2/lib/node_modules/alacritty-themes/themes/Tokyonight_Night.toml",
+]
+
+[font]
+size = 9
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Italic"
+
+[window]
+opacity = 0.9

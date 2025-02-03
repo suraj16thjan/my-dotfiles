@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+# Define your wallpapers folder
+walldir="$HOME/hyprland/wallpapers/"
+
+# cd to the walldir
+cd "$walldir" || exit
+
+# Get selected file from wofi
+selection=$(ls -1F | fuzzel -d)
+
+# fullpath of the desired or selected file
+file="${walldir}${selection}"
+
+# change wallpaper with swww
+swaybg -i $file && notify-send -i $file -t 1200 "Wall changed to ${selection}"

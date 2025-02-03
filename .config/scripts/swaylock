@@ -1,0 +1,3 @@
+
+swaylock --image /home/suraj/hyprland/wallpapers/Luffy.jpg --clock --indicator --effect-blur 7x5
+#swaylock --clock --indicator --effect-blur 7x5

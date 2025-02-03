@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+THEME='Gruvbox-Dark-BL'
+
+SCHEMA='gsettings set org.gnome.desktop.wm.preferences theme'
+
+apply_theme() {
+  ${SCHEMA} gtk-theme "$THEME"
+}

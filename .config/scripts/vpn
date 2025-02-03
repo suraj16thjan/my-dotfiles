@@ -1,0 +1,1 @@
+sudo openvpn --config $(fd . /home/user/ing/vpn | fzf --no-preview)

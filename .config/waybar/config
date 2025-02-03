@@ -1,0 +1,298 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 5,
+  "spacing": 4,
+  "modules-left": [
+    "custom/iso",
+    // "hyprland/workspaces",
+    "wlr/taskbar",
+    // "wlr/workspaces",
+    "sway/mode",
+    "sway/scratchpad"
+    // "custom/media"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "privacy",
+    "pulseaudio",
+    // "pulseaudio/slider",
+    "pulseaudio#microphone",
+    // "cava",
+    "network",
+    "cpu",
+    "memory",
+    "temperature",
+    "backlight",
+    "keyboard-state",
+    "sway/language",
+    "battery",
+    "battery#bat2",
+    "clock",
+    "power-profiles-daemon",
+    "tray"
+  ],
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "sway/scratchpad": {
+    "format": "{icon} {count}",
+    "show-empty": false,
+    "format-icons": [
+      "",
+      ""
+    ],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "on-click": "alacritty -e btm",
+    "tooltip": true
+  },
+  "memory": {
+    "on-click": "alacritty -e btm",
+    "format": "{}% "
+  },
+  "temperature": {
+    "on-click": "alacritty -e btm",
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "custom/pipewire": {
+    "exec": "pw-volume status",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 8,
+    "format": "{icon} {percentage}",
+    "format-icons": {
+      "mute": "",
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    }
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}%  ",
+    "format-plugged": "{capacity}%   ",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "  ",
+      "  ",
+      "  ",
+      "  ",
+      "  "
+    ]
+  },
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+  "network": {
+    "format-wifi": "({signalStrength}%)    {bandwidthDownBits}     {bandwidthUpBits} ",
+    "format-ethernet": " {bandwidthDownBits} {bandwidthUpBits} ",
+    //"format-wifi": "({signalStrength}%)  ",
+    //"format-ethernet": "{ipaddr}/{cidr}  ",
+    "tooltip-format": "{ifname} via {gwaddr} on {essid}",
+    "format-linked": "{ifname} (No IP)  ",
+    "format-disconnected": " ⚠ ",
+    "on-click": "nm-applet",
+    "on-click-right": "killall -9 nm-applet"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "",
+    "on-click": "/home/suraj/hyprland/scripts/volume --toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "/home/suraj/hyprland/scripts/volume --inc",
+    "on-scroll-down": "/home/suraj/hyprland/scripts/volume --dec",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "tooltip": true,
+    "tooltip-format": "{icon} at {volume}%"
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "on-click": "/home/suraj/hyprland/scripts/volume --toggle-mic",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "/home/suraj/hyprland/scripts/volume --mic-inc",
+    "on-scroll-down": "/home/suraj/hyprland/scripts/volume --mic-dec",
+    "scroll-step": 5,
+    "tooltip": true,
+    "tooltip-format": " at {volume}%"
+  },
+  "custom/media": {
+    "format": "{icon}{}",
+    "return-type": "json",
+    "format-icons": {
+      "Playing": " ",
+      "Paused": " "
+    },
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\"}' -F",
+    "on-click": "playerctl play-pause"
+  },
+  "custom/iso": {
+    "format": "",
+    "tooltip": false
+  },
+  "wlr/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
+    }
+  },
+  "hyprland/window": {
+    "format": "{class} {title}",
+    "default": "Arch"
+  },
+  "cava": {
+    "framerate": 30,
+    "autosens": 1,
+    "sensitivity": 100,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "actions": {
+      "on-click-right": "mode"
+    }
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 14,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "Alacritty"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
+    }
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "all-outputs": false,
+    "icon-size": 11,
+    "icon-theme": "Obsidian"
+  },
+"privacy": {
+  "icon-spacing": 4,
+  "icon-size": 17,
+	"transition-duration": 250,
+	"modules": [
+		{
+			"type": "screenshare",
+			"tooltip": true,
+			"tooltip-icon-size": 17
+		},
+		{
+			"type": "audio-out",
+			"tooltip": true,
+			"tooltip-icon-size": 17
+		},
+		{
+			"type": "audio-in",
+			"tooltip": true,
+			"tooltip-icon-size": 17
+		}
+	]
+},
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+},"power-profiles-daemon": {
+  "format": "{icon}",
+  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+  "tooltip": true,
+  "format-icons": {
+    "default": "",
+    "performance": "",
+    "balanced": "",
+    "power-saver": ""
+  }
+}
+}

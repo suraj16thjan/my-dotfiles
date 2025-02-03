@@ -1,0 +1,39 @@
+# Easily reload configuration
+bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
+
+
+# mouse on
+set -g mouse on
+
+# change prefix ctrl + a  --> crtl + b
+unbind-key C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# change horizontal split
+unbind '"'
+bind s split-window -h -c "#{pane_current_path}"
+
+# change vertical split
+unbind %
+bind v split-window -v -c "#{pane_current_path}"
+
+setw -g mode-keys vi
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+set-option -g status-position top
+
+
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
+# set -g @plugin 'egel/tmux-gruvbox'
+# set -g @tmux-gruvbox 'dark' # or 'light'
+#set -g @plugin 'seebi/tmux-colors-solarized'
+#set -g @colors-solarized 'dark'
+#set -g @plugin 'catppuccin/tmux'
+
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+run '~/.tmux/plugins/tpm/tpm'

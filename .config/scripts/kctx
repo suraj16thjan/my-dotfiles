@@ -1,0 +1,1 @@
+kubectl config use-context $(kubectl config get-contexts | awk 'NR>1 {print $2}' | fzf --no-preview)
